@@ -1,0 +1,17 @@
+[Unit]
+Description=Hello World Go App
+After=network.target
+
+[Service]
+User=root
+Group=root
+#WorkingDirectory={{go_example_hello_world_path}}
+ExecStart={{go_example_hello_world_path}}/{{go_example_hello_world_binary_name}}
+Restart=on-failure
+RestartSec=5
+
+# Set environment variables if required
+# Environment=ENV_VAR=value
+
+[Install]
+WantedBy=multi-user.target

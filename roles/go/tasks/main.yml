@@ -1,0 +1,8 @@
+---
+# tasks file for go
+- include_tasks: install.yml
+  tags:
+    - install
+- include_tasks: hello-world-example.yml
+  tags:
+    - hello-world-example

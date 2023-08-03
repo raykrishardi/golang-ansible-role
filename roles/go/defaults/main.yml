@@ -1,0 +1,8 @@
+---
+# defaults file for go
+go_version: 1.20.7
+go_os: linux
+go_arch: arm64
+
+go_example_hello_world_path: /usr/local
+go_example_hello_world_binary_name: hello-world

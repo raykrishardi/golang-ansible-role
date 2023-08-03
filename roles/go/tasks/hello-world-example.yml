@@ -1,0 +1,37 @@
+---
+# build and run the hello world program as a systemd service
+- name: Copy the hello world go file
+  become: true
+  template:
+    src: hello-world.go.j2
+    dest: "{{go_example_hello_world_path}}/{{go_example_hello_world_binary_name}}.go"
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+  - hello-world-example
+- name: Build the go app
+  become: true
+  shell: |
+    export PATH="$PATH:{{go_path}}/bin"
+    env GOOS={{go_os}} CGO_ENABLED=0 go build -o {{go_example_hello_world_path}}/{{go_example_hello_world_binary_name}} {{go_example_hello_world_path}}/{{go_example_hello_world_binary_name}}.go
+  tags:
+  - hello-world-example
+- name: Copy the hello world systemd unit file
+  become: true
+  template:
+    src: hello-world.service.j2
+    dest: "/etc/systemd/system/{{go_example_hello_world_binary_name}}.service"
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+  - hello-world-example
+- name: Enable and start the hello world service
+  become: true
+  systemd:
+    name: "{{go_example_hello_world_binary_name}}"
+    enabled: yes
+    state: started
+  tags:
+  - hello-world-example

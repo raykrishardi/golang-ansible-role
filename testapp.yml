@@ -1,0 +1,5 @@
+- name: install go and example hello world go application
+  hosts: linux
+  become: true
+  roles:
+  - go

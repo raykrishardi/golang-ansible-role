@@ -1,0 +1,6 @@
+---
+# handlers file for go
+- name: restart hello-world
+  service:
+    name: "{{go_example_hello_world_binary_name}}"
+    state: restarted
