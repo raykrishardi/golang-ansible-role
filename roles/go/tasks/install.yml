@@ -2,9 +2,10 @@
 # remove previously installed go and install go
 # reference: https://go.dev/doc/install
 - name: Download go
+  become: true
   get_url:
-    url: "{{go_download_url}}/go{{go_version}}.{{go_os}}-{{go_arch}}.tar.gz"
-    dest: "{{go_download_dest_path}}"
+    url: "{{go_download_full_url}}"
+    dest: "{{go_download_dest_base_path}}"
   tags:
   - install
 - name: Remove any previously installed go version
@@ -17,13 +18,13 @@
 - name: Install go
   become: true
   shell: |
-    tar -C /usr/local -xzf {{go_download_dest_path}}/go{{go_version}}.{{go_os}}-{{go_arch}}.tar.gz
+    tar -C /usr/local -xzf {{go_download_dest_full_path}}
   tags:
   - install
 - name: Remove go installer
   become: true
   file:
-    path: "{{go_download_dest_path}}/go{{go_version}}.{{go_os}}-{{go_arch}}.tar.gz"
+    path: "{{go_download_dest_full_path}}"
     state: absent
   tags:
   - install

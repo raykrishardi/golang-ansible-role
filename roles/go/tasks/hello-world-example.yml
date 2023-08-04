@@ -4,7 +4,7 @@
   become: true
   template:
     src: hello-world.go.j2
-    dest: "{{go_example_hello_world_path}}/{{go_example_hello_world_binary_name}}.go"
+    dest: "{{go_example_hello_world_full_path}}"
     owner: root
     group: root
     mode: 0644
@@ -14,14 +14,14 @@
   become: true
   shell: |
     export PATH="$PATH:{{go_path}}/bin"
-    env GOOS={{go_os}} CGO_ENABLED=0 go build -o {{go_example_hello_world_path}}/{{go_example_hello_world_binary_name}} {{go_example_hello_world_path}}/{{go_example_hello_world_binary_name}}.go
+    env GOOS={{go_os}} CGO_ENABLED=0 go build -o {{go_example_hello_world_binary_full_path}} {{go_example_hello_world_full_path}}
   tags:
   - hello-world-example
 - name: Copy the hello world systemd unit file
   become: true
   template:
     src: hello-world.service.j2
-    dest: "/etc/systemd/system/{{go_example_hello_world_binary_name}}.service"
+    dest: "{{go_example_hello_world_service_full_path}}"
     owner: root
     group: root
     mode: 0644

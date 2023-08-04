@@ -6,7 +6,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    str := fmt.Sprintf("Hello from %s", "{{ ansible_hostname }}")
+    str := fmt.Sprintf("Hello from %s", "{{ansible_hostname}}")
 	fmt.Fprintf(w, str)
 }
 

@@ -1,5 +1,7 @@
 ---
 # vars file for go
-go_download_url: https://go.dev/dl
-go_download_dest_path: /usr/local
+go_download_base_url: https://go.dev/dl
+go_download_full_url: "{{go_download_base_url}}/go{{go_version}}.{{go_os}}-{{go_arch}}.tar.gz"
+go_download_dest_base_path: /usr/local
+go_download_dest_full_path: "{{go_download_dest_base_path}}/go{{go_version}}.{{go_os}}-{{go_arch}}.tar.gz"
 go_path: /usr/local/go

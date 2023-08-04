@@ -5,8 +5,7 @@ After=network.target
 [Service]
 User=root
 Group=root
-#WorkingDirectory={{go_example_hello_world_path}}
-ExecStart={{go_example_hello_world_path}}/{{go_example_hello_world_binary_name}}
+ExecStart={{go_example_hello_world_binary_full_path}}
 Restart=on-failure
 RestartSec=5
 

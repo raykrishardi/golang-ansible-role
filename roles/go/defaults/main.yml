@@ -4,5 +4,8 @@ go_version: 1.20.7
 go_os: linux
 go_arch: arm64
 
-go_example_hello_world_path: /usr/local
+go_example_hello_world_base_path: /usr/local
 go_example_hello_world_binary_name: hello-world
+go_example_hello_world_full_path: "{{go_example_hello_world_base_path}}/{{go_example_hello_world_binary_name}}.go"
+go_example_hello_world_binary_full_path: "{{go_example_hello_world_base_path}}/{{go_example_hello_world_binary_name}}"
+go_example_hello_world_service_full_path: "/etc/systemd/system/{{go_example_hello_world_binary_name}}.service"
