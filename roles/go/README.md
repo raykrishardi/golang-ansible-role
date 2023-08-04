@@ -1,11 +1,16 @@
 Role Name
 =========
 
-The Go ansible role allows you to install a specific go version (only linux OS is supported at the moment) including setting up an example hello world Go web application as a systemd service.
+The Golang ansible role allows you to install a specific Go version (only linux OS is supported at the moment) including setting up an example hello world Go web application as a systemd service.
 
-For Windows, you could simply install go using `choco install golang`
+- For Windows, you could simply install go using `choco install golang`
+- For MacOS, you could simply install go using `brew install go`
 
-For MacOS, you could simply install go using `brew install go`
+You could test whether the example hello world Go web application has been running successfully using the following commands on the target machine defined in the inventory file:
+```
+systemctl status hello-world
+curl localhost:8080
+```
 
 Requirements
 ------------
@@ -31,13 +36,7 @@ Dependencies
 Example Playbook
 ----------------
 
-Please refer to `testapp.yml` for an example playbook
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+Please refer to `testapp.yml` for an example playbook (including overwritting the default ansible role variable value)
 
 License
 -------
@@ -47,4 +46,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+[Ray Layadi](https://www.linkedin.com/in/ray-krishardi-layadi/)
