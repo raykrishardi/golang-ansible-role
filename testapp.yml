@@ -1,4 +1,6 @@
 - name: install go and example hello world go application
   hosts: linux
   roles:
-  - go
+  - role: go
+    vars:
+      go_version: 1.19.12

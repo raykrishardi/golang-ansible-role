@@ -1,25 +1,37 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+The Go ansible role allows you to install a specific go version (only linux OS is supported at the moment) including setting up an example hello world Go web application as a systemd service.
+
+For Windows, you could simply install go using `choco install golang`
+
+For MacOS, you could simply install go using `brew install go`
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- ssh authentication to the instance (ssh keys or password)
+- sudo permission and ability to run sudo without password
+
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+`vars/main.yml`
+- Variables defined in this file is NOT recommended to be changed
+
+`defaults/main.yml`
+- Variables defined in this file can be changed as per your requirements
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+
 
 Example Playbook
 ----------------
+
+Please refer to `testapp.yml` for an example playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
