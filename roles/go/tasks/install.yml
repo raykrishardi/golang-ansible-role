@@ -1,7 +1,7 @@
 ---
 # remove previously installed go and install go
 # reference: https://go.dev/doc/install
-- name: Installing go
+- name: Go version
   debug:
     var: go_download_full_url
 - name: Download go
